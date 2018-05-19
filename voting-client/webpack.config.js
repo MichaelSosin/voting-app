@@ -10,9 +10,10 @@ module.exports = {
     rules: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loader: 'babel-loader?presets[]=react',
+      loader: 'babel-loader',
       options: {
         babelrc: false,
+        presets:['react','es2015'],
         plugins: ['react-hot-loader/babel'],
       }
     }]
