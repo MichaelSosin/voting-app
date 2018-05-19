@@ -7,14 +7,18 @@ module.exports = {
     './src/index.jsx'
   ],
   module: {
-    loaders: [{
+    rules: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loader: 'react-hot!babel'
+      loader: 'babel-loader?presets[]=react',
+      options: {
+        babelrc: false,
+        plugins: ['react-hot-loader/babel'],
+      }
     }]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   },
   output: {
     path: __dirname + '/dist',
@@ -27,5 +31,6 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin()
-  ]
+  ],
+  mode: 'development'
 }
